@@ -8,6 +8,6 @@ namespace RequestConsole.Abstractions
 {
     internal interface IProcessor
     {
-        Task Process();
+        Task Process(string filePath);
     }
 }

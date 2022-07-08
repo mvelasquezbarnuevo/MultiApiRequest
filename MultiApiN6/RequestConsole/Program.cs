@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RequestConsole.Abstractions;
 using RequestConsole.Extensions;
+using Microsoft.Extensions.Configuration;
 
 namespace RequestConsole
 {
@@ -13,10 +14,15 @@ namespace RequestConsole
         {
             using IHost host = CreateHostBuilder(args).Build();
 
+            IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile("appSettings.json")
+                .Build();
+            var filePath = config.GetSection("FilePath").Value;
+
             var processor = host.Services.GetService<IProcessor>();
 
             if (processor is not null)
-                await processor.Process();
+                await processor.Process(filePath);
         }
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -14,13 +14,12 @@ namespace RequestConsole
             _inputReader = inputReader ?? throw new ArgumentNullException(nameof(inputReader));
             _clientService = clientService ?? throw new ArgumentNullException(nameof(clientService));
         }
-        public async Task Process()
+        public async Task Process(string filePath)
         {
             try
             {
-                string filePath = "file.txt";
                 Console.WriteLine($"Reading input data from file: {filePath}");
-                var jsonString = _inputReader.Read(filePath);
+                var jsonString = _inputReader.Read(@filePath);
 
                 Request? request = JsonSerializer.Deserialize<Request>(jsonString);
 
