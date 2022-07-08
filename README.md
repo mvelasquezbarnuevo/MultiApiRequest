@@ -1,6 +1,6 @@
 # MultiApiRequest
 
-Add a file.txt in appSettings.json
+Add the path to file.txt in appSettings.json
 
 
 The file should contain (in JSON format as input) =>
@@ -15,3 +15,7 @@ The file should contain (in JSON format as input) =>
 			"height": 20
 		}]
 }
+
+
+
+Sample APIs can be run using dotnet run CLI command
