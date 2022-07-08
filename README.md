@@ -3,7 +3,7 @@
 Add a file.txt in appSettings.json
 
 
-the file should contentts (in JSON format as input) =>
+The file should contain (in JSON format as input) =>
 
 
 {
